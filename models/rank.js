@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Rank.associate = function(models) {
     // associations can be defined here
-    Rank.hasMany(models.Heros)
+    Rank.hasMany(models.Hero)
   };
   return Rank;
 };

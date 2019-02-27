@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+
+<div class="hero-wrap js-fullheight">
+    <h1 class="overlay">Join Our Forces!</h1><br>
+</div>
+<div>
+    <form method="POST">
+        Username:
+        <input type="text" name="name">
+        Password:
+        <input type="password" name="password">
+        Gender:
+        <select name="gender"> 
+                <option value="Male">Male</option> 
+                <option value="Female">Female</option> 
+        </select> 
+        <button type="submit">Join</button>
+    </form>
+</div>
+
+<% include ./partials/footer.ejs %>
