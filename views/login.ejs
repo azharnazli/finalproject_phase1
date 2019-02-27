@@ -4,7 +4,10 @@
 <section class="hero-wrap js-fullheight">
     <div class="container" style="background-image: url();" data-stellar-background-ratio="0.5"> <!--Belum ada background-->
         <div class="row js-fullheight align-items-center justify-content-center">
-            <form class="col-sm-4 text-center  mb-2 bread" action="/" method="POST">
+           <% if(errMessage){ %>
+                <h3><%= errMessage %></h3>
+           <% } %>
+            <form class="col-sm-4 text-center  mb-2 bread" action="/login" method="POST">
                 <input type="text" name="name" placeholder="username"><br>
                 <input type="password" name="password" placeholder="password"><br><br>
                 <button class="col-sm-6 text-center btn btn-success" type="submit">Login</button>
