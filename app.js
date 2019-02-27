@@ -11,6 +11,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 app.use('/', homeRouter)
+app.use('/hero', heroRouter)
 
 
 
