@@ -31,7 +31,13 @@ router.get('/register',(req, res)=>{
   
 //--------------LOGIN HEROES------------------
 router.get('/login',(req,res)=>{
-    res.render('login')
+    let errMessage
+
+    if(req.query.err){
+        errMessage = req.query.err
+    }
+    
+    res.render('login',{errMessage})
 })
 
 router.post('/login',(req,res)=>{
@@ -41,20 +47,22 @@ router.post('/login',(req,res)=>{
         }
     })
     .then(hero=>{
+        console.log(hero);
         if(hero.password == req.body.password){
-            res.redirect('/home')
+            res.redirect('/')
         }else{
-            throw new Error(err)
+            throw new Error('password salah')
         }
     })
     .catch(err=>{
-        res.send(err.message)
+        res.redirect(`/login?err=${err}`)
     })
 })
 //------------TOP GLOBAL-----------------------
 router.get('/top-global',(req,res)=>{
     Hero.findAll()
     .then(heroes=>{
+        console.log(heroes);
         res.send('top-global',{heroes})
     })
     .catch(err=>{
