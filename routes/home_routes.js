@@ -9,7 +9,7 @@ router.get('/register',(req, res)=>{
     res.render('register')
   })
   
-  router.post('/',(req,res)=>{
+  router.post('/register',(req,res)=>{
   
       const addHero = 
       {
@@ -22,12 +22,43 @@ router.get('/register',(req, res)=>{
   
       Hero.create(addHero)
       .then(()=>{
-          res.redirect('/home')
+          res.redirect('/')
       })
       .catch(err=>{
           res.send(err.message)
       })
   })
+  
 //--------------LOGIN HEROES------------------
-router.get('')
+router.get('/login',(req,res)=>{
+    res.render('login')
+})
+
+router.post('/login',(req,res)=>{
+    Hero.findOne({
+        where : {
+            name : req.body.name
+        }
+    })
+    .then(hero=>{
+        if(hero.password == req.body.password){
+            res.redirect('/home')
+        }else{
+            throw new Error(err)
+        }
+    })
+    .catch(err=>{
+        res.send(err.message)
+    })
+})
+//------------TOP GLOBAL-----------------------
+router.get('/top-global',(req,res)=>{
+    Hero.findAll()
+    .then(heroes=>{
+        res.send('top-global',{heroes})
+    })
+    .catch(err=>{
+        res.send(err.message)
+    })
+})
 module.exports = router

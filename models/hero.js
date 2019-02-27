@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     powerLevel: DataTypes.INTEGER,
     RankId : DataTypes.INTEGER,
     password : DataTypes.STRING,
-    gender: DataTypes.STRING
+    gender: DataTypes.STRING,
+    email: DataTypes.STRING
   }, {});
   Hero.associate = function(models) {
     // associations can be defined here
