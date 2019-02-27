@@ -62,11 +62,11 @@ router.post('/login',(req,res)=>{
 router.get('/top-global',(req,res)=>{
     Hero.findAll()
     .then(heroes=>{
-        console.log(heroes);
-        res.send('top-global',{heroes})
+        
+        res.render('top-global',{heroes})
     })
     .catch(err=>{
-        res.send(err.message)
+        res.send(err)
     })
 })
 module.exports = router
