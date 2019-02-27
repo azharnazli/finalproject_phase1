@@ -1,21 +1,25 @@
 <% include ./partials/header.ejs %>
 
-<div class="hero-wrap js-fullheight">
-    <h1 class="overlay">Join Our Forces!</h1><br>
-</div>
-<div>
-    <form method="POST">
-        Username:
-        <input type="text" name="name">
-        Password:
-        <input type="password" name="password">
-        Gender:
-        <select name="gender"> 
-                <option value="Male">Male</option> 
-                <option value="Female">Female</option> 
-        </select> 
-        <button type="submit">Join</button>
-    </form>
-</div>
+<section class="hero-wrap js-fullheight">
+    <div class="container"style="background-image: url(https://mirapic.com/wp-content/uploads/2018/07/Ryu-Street-Fighter-III-3rd-Strike-Image-Background-WallPaper-Hd.jpg);" data-stellar-background-ratio="0.5" >
+        <div class="row js-fullheight align-items-center justify-content-center">
+            <form class="mb-3 bread" method="POST">
+                <label for="username">Username: </label>
+                <input type="text" name="name" required placeholder="username">
+                <label for="password">Password: </label>
+                <input type="password" name="password" required placeholder="password">
+                <label for="email">Email: </label>
+                <input type="email" name="email" required placeholder="email">
+
+                Gender:
+                <select name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </div>
+</section>
 
 <% include ./partials/footer.ejs %>
