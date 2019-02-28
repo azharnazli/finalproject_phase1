@@ -1,20 +1,23 @@
 <% include ./partials/header.ejs %>
+<center>
+    <h1 style="margin-top: 10%">TOP GLOBAL HEROES</h1>
+    <table border="1" style="margin-top:5%; width: 80%; text-align: center">
+        <thead>
+            <td>Hero's Name</td>
+            <td>Power Level</td>
+            <td>Rank</td>
+        </thead>
+        <tbody>
+            <tr>
+              <%  heroes.forEach(x=>{ %>
+                    <td><%= x.name %></td>
+                    <td><%= x.powerLevel %></td>
+                    <td><%= x.Rank.class_name %></td>  
+                </tr>
+              <%  }) %>
+        </tbody>
+    </table>
 
-<table>
-    <thead>
-        <td>Hero's Name</td>
-        <td>Power Level</td>
-        <td>Rank</td>
-    </thead>
-    <tbody>
-        <tr>
-          <%  heroes.forEach(x=>{ %>
-                <td><%= x.name %></td>
-                <td><%= x.powerLevel %></td>
-                <td><%= x.Rank.class_name %></td>  
-            </tr>
-          <%  }) %>
-    </tbody>
-</table>
+</center>
 
 <% include ./partials/footer.ejs %>
