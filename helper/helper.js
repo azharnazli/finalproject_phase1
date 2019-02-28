@@ -24,6 +24,28 @@ function randomNumber(value = 5) {
     return data
 }
 
+function fight(player,monster){
+    let monsterPower;
+    let result;
+    if(monster.ThreatId == 5) {
+        monsterPower = Math.ceil(Math.random()*(130-50))+50
+    } else if (monster.ThreatId == 4) {
+        monsterPower = Math.ceil(Math.random()*(1300-500))+500
+    } else if (monster.ThreatId == 3) {
+        monsterPower = Math.ceil(Math.random()*(13000-5000))+5000
+    } else if (monster.ThreatId == 2) {
+        monsterPower = Math.ceil(Math.random()*(130000-50000))+50000
+    } else if (monster.ThreatId == 1) {
+        monsterPower = Math.ceil(Math.random()*(1300000-500000))+500000
+    }
+    result =  player.powerLevel - monsterPower
+    if(result < 0 ) {
+        result = "lose"
+    } else {
+        result = win
+    }
+    return result
+}
 
 module.exports = {
     quizResult,
