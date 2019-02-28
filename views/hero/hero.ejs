@@ -2,6 +2,7 @@
 
 <section class="hero-wrap js-fullheight">
   <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div>
+ 
   <div class="container">
     <br>
     <br>
@@ -15,6 +16,13 @@
     <div class="col-12 "><input type="button" class="btn btn-outline-primary float-right border border-primary" style="width:10%" value="wolf" ></div><br><br>
     </form>
   </div>
+  <% if(data.powerLevel == null){ %>
+    <div style="text-align:center">
+        <button type="submit" value="HERO'S TEST" style="position:relative"><a href="/hero/<%= locals.session.id %>/quiz">HERO'S TEST</a></button>
+    </div>
+  <% }else{ %>
+    <h2>Your Power Level : <%= data.powerLevel %></h2>
+  <% } %>
   </div>
 </section>
 
