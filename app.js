@@ -15,7 +15,9 @@ const helper = require('./helper/helper')
 
 
 app.use(session({
-    secret: 'foxheroes'
+    secret: 'foxheroes',
+    resave:true,
+    cookie:true
 }))
 app.locals.quizResult = require('./helper/helper')
 app.set('view engine', 'ejs')
