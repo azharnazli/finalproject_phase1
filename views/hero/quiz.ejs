@@ -1,39 +1,47 @@
+<% include ../partials/header.ejs %>
+<section>
+    <div >
+        <br>
+        <br>
+        <br>
+        <div class="container" style="background-image: url(http://psdstation.com/tutorials/wp-content/uploads/2011/04/210.jpg);" data-stellar-background-ratio="0.5">
+            <form action="/hero/<%= data.id %>" method="post" id="quiz">
 
-        <section class="hero-wrap js-fullheight">
-        <div id="page-wrap">
+                <ol>
 
-                <h1> Hero Quiz </h1>
-                
-                <form action="/hero/<%= data.id %>" method="post" id="quiz">
-                
-                    <ol>
-                    
-                        <%   questions.forEach(x=>{ %>
-                            <li>
-                                <h3><%= x.question %></h3>
-                            <div>
+                    <%   questions.forEach(x=>{ %>
+                    <li>
+                        
+                            <%= x.question %>
+                        
+                        <div>
 
-                                <input type="radio" name="<%= x.id%>" id="question-1-answers-A" value="A" />
-                                <label for="question-1-answers-A">A)<%= x.Answers[0].answer %></label>
-                            </div>
-                            
-                            <div>
-                                <input type="radio" name="<%= x.id%>" id="question-1-answers-B" value="B" />
-                                <label for="question-1-answers-B">B) <%= x.Answers[1].answer %></label>
-                            </div>
-                            
-                            <div>
-                                <input type="radio" name="<%= x.id%>" id="question-1-answers-C" value="C" />
-                                <label for="question-1-answers-C">C) <%= x.Answers[2].answer %></label>
-                            </div>
-                         <%   }) %>
-                            
-                        </li>
-                    </ol>
-                    
-                    <input type="submit" value="Submit Quiz" />
-                </form>
-            </div>
-        </section>
+                            <input type="radio" name="<%= x.id%>" id="question-1-answers-A" value="A" required="required" />
+                            <label for="question-1-answers-A">A)
+                                <%= x.Answers[0].answer %></label>
+                        </div>
 
+                        <div>
+                            <input type="radio" name="<%= x.id%>" id="question-1-answers-B" value="B" required="required" />
+                            <label for="question-1-answers-B">B)
+                                <%= x.Answers[1].answer %></label>
+                        </div>
 
+                        <div>
+                            <input type="radio" name="<%= x.id%>" id="question-1-answers-C" value="C" required="required" />
+                            <label for="question-1-answers-C">C)
+                                <%= x.Answers[2].answer %></label>
+                        </div>
+                        <%   }) %>
+
+                        <input type="submit" value="Submit Quiz" class="btn btn-sm btn-danger"/>
+                    </li>
+                </ol>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+<% include ../partials/footer.ejs %>
