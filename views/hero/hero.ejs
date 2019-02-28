@@ -2,18 +2,26 @@
 
 <section class="hero-wrap js-fullheight">
   <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div>
- 
+<% console.log(threat) %>
   <div class="container">
     <br>
     <br>
     <br>
     <br>
     <form>
-    <div class="col-12 "><input type="button" class="btn btn-outline-warning float-right border border-warning" style="width:10%" value="god"></div><br><br>
-    <div class="col-12 "><input type="button" class="btn btn-outline-dark float-right border border-dark" style="width:10%" value="dragon"></div><br><br>
-    <div class="col-12 "><input type="button" class="btn btn-outline-danger float-right border border-danger" style="width:10%" value="demon"></div><br><br>
-    <div class="col-12 "><input type="button" class="btn btn-outline-success float-right border border-success" style="width:10%" value="tiger"></div><br><br>
-    <div class="col-12 "><input type="button" class="btn btn-outline-primary float-right border border-primary" style="width:10%" value="wolf" ></div><br><br>
+      <%  threat.slice(0,5).map( x =>{ %>
+          <% if(x.ThreatId === 1) { %>
+            <div class="col-12 "><input type="button" class="btn btn-outline-warning float-right border border-warning" style="width:10%" value="god" onclick="window.location.href='/threat/<%=x.id%>'" ></div><br><br>
+          <% }else if(x.ThreatId === 2){ %>
+            <div class="col-12 "><input type="button" class="btn btn-outline-dark float-right border border-dark" style="width:10%" value="dragon" onclick="window.location.href='/threat/<%=x.id%>'" ></div><br><br>
+          <% }else if(x.ThreatId === 3) { %>
+            <div class="col-12 "><input type="button" class="btn btn-outline-danger float-right border border-danger" style="width:10%" value="demon" onclick="window.location.href='/threat/<%=x.id%>'" ></div><br><br>
+          <% }else if(x.ThreatId === 4){ %>
+            <div class="col-12 "><input type="button" class="btn btn-outline-success float-right border border-success" style="width:10%" value="tiger" onclick="window.location.href='/threat/<%=x.id%>'" ></div><br><br>
+         <% }else if(x.ThreatId === 5) { %>
+            <div class="col-12 "><input type="button" class="btn btn-outline-primary float-right border border-primary" style="width:10%" value="wolf" onclick="window.location.href='/threat/<%=x.ThreatId%>'"  ></div><br><br>
+          <% } %>
+       <% }) %>
     </form>
   </div>
   <% if(data.powerLevel == null){ %>

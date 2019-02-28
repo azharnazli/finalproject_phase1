@@ -1,9 +1,14 @@
+const model = require('./models')
 const express = require('express');
 const app = express();
 const port = 3000;
 const homeRouter = require('./routes/home_routes')
 const heroRouter = require('./routes/hero_routes')
+const threatRouter = require('./routes/threat_routes')
 const session = require('express-session')
+const cron = require('node-cron')
+const helper = require('./helper/helper')
+
 
 
 
@@ -22,9 +27,16 @@ app.use("*/images",express.static("public/images"))
 
 app.use('/', homeRouter)
 app.use('/hero', heroRouter)
+app.use('/threat', threatRouter)
 
 
-
+cron.schedule('*/5 * * * *',()=>{
+    model.HeroesThreats.create({
+        ThreatId: helper.randomNumber(),
+        createdAt:new Date(),
+        updatedAt:new Date(),
+    })
+})
 
 
 app.listen(port, () => {

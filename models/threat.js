@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Threat.associate = function(models) {
     // associations can be defined here
-    Threat.belongsToMany(models.Hero,{through: models.HeroesThreats})
+    Threat.belongsToMany(models.Hero,{through: models.HeroesThreats, foreignKey:'ThreatId'})
   };
   return Threat;
 };

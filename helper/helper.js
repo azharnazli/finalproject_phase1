@@ -18,4 +18,14 @@ function quizResult(body){
     return point
 }
 
-module.exports = quizResult
+
+function randomNumber(value = 5) {
+    const data = Math.ceil(Math.random() * value)
+    return data
+}
+
+
+module.exports = {
+    quizResult,
+    randomNumber
+}
