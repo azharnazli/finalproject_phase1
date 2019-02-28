@@ -1,8 +1,35 @@
 <% include ../partials/header.ejs %>
 
 <div class="container">
-  <input type="image" src="https://orig00.deviantart.net/fa44/f/2016/365/2/3/2324c1f8a37509e834b1c05312c37878-datk5wk.gif">
-  <center>
+  
+  <div class="row">
+      <div class="column">
+       <% let num = Math.floor(Math.random() * 4); %>
+       <% if(num == 0){ %>
+          <img src="images/scorpion.gif" alt="Snow" style="width:100%">
+       <% }else if(num == 1){ %>
+          <img src="images/HULK.gif" alt="Snow" style="width:100%">
+       <% }else if(num == 2){ %>
+          <img src="images/sonya.gif" alt="Snow" style="width:30%; margin-top: 20%; margin-left: 20%">
+      <% }else if(num == 3){ %>
+          <img src="images/sub-zero.gif" alt="Snow" style="width:100%; margin-top: 30%; margin-left: 20%">
+      <%  } %>
+      </div>
+      <div class="column">
+       <% if(data.ThreatId == 1){ %>
+          <img src="images/GOD.gif" alt="Forest" style="width:100%; margin-left: 20%">
+       <% }else if(data.ThreatId == 2){ %>
+          <img src="images/DRAGON.gif" alt="Forest" style="width:100%; margin-left: 20%">
+      <% }else if(data.ThreatId == 3){ %>
+          <img src="images/DEMON.gif" alt="Forest" style="width:100%; margin-left: 20%">
+      <%  }else if(data.ThreatId == 4){ %>
+          <img src="images/tiger-color.gif" alt="Forest" style="width:100%; margin-left: 20%">
+      <%  }else if(data.ThreatId == 5){ %>
+          <img src="images/ol_wolf_idle.gif" alt="Forest" style="width:100%; margin-left: 20%">
+      <%  } %>
+      </div>
+  </div>
+  <center style="margin-right:10%">
     <form action="/hero">
       <button type="submit">FIGHT</button>
     </form>
