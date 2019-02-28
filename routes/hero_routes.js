@@ -13,7 +13,6 @@ router.get('/:id', (req, res) => {
         }
       })
       .then(threat =>{
-        // res.send(threat)
         res.render('hero/hero', {
           session: req.session.login,
           data,threat
