@@ -57,7 +57,6 @@ router.post('/:id/', (req, res) => {
               id: idthreat
             }
           })
-          // res.send(req.session)
         })
     })
     .then(() => {
