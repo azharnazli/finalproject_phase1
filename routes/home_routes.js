@@ -26,6 +26,7 @@ router.post('/register', (req, res) => {
     const addHero = {
         name: req.body.name,
         powerLevel: req.body.powerLevel,
+        email:req.body.email,
         RankId: req.body.RankId,
         password: req.body.password,
         gender: req.body.gender
