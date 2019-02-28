@@ -8,7 +8,7 @@ router.get('/:id/',(req, res)=>{
   .then (threat =>{
     Hero.findByPk(req.session.login.id)
     .then ( hero =>{
-      res.send({data:threat,hero})
+      res.render("threat/main",{data:threat,hero})
     })
   })
 })
