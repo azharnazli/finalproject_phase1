@@ -34,13 +34,13 @@ app.use('/hero', heroRouter)
 app.use('/threat', threatRouter)
 
 
-// cron.schedule('*/5 * * * *',()=>{
-//     model.HeroesThreats.create({
-//         ThreatId: helper.randomNumber(),
-//         createdAt:new Date(),
-//         updatedAt:new Date(),
-//     })
-// })
+cron.schedule('*/5 * * * *',()=>{
+    model.HeroesThreats.create({
+        ThreatId: helper.randomNumber(),
+        createdAt:new Date(),
+        updatedAt:new Date(),
+    })
+})
 
 
 app.listen(port, () => {
