@@ -31,6 +31,7 @@
   </div>
   <center style="margin-right:10%">
     <form action="/threat/<%=hero.id%>" method="POST">
+      <input type="text" hidden="true" name="idthreat" value="<%=idthreat%>">
       <input type="text" hidden="true" name="result" value="<%=data%>">
       <button type="submit">FIGHT</button>
     </form>

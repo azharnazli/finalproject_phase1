@@ -11,43 +11,57 @@ const router = express.Router();
 const helper = require('../helper/helper')
 
 router.get('/:id/', (req, res) => {
+  let idthreat = req.params.id
   HeroesThreats.findByPk(req.params.id)
     .then(threat => {
       Hero.findByPk(req.session.login.id)
         .then(hero => {
-          // res.send({data: helper.fight(hero,threat)})
           res.render("threat/main", {
             data: helper.fight(hero, threat),
             hero,
-            threat
+            idthreat,
+            threat,
+            session: req.session.login
           })
         })
     })
 })
 
 router.post('/:id/', (req, res) => {
+  let idthreat = req.body.idthreat
   let result = req.body.result
   let score;
   if (result == 'lose') {
-    result = -10
+    score = -10
   } else {
-    result = 30
+    score = 30
   }
   Hero.findByPk(req.params.id)
     .then(hero => {
       let clas = helper.checkClass(hero)
-      score = hero.powerLevel + result
-      Hero.update({
-        RankId:clas,
-        powerLevel: score
-      }, {
-        where: {
-          id: req.params.id
-        }
-      })
-      .then ( ()=>{
-        res.redirect(`/hero/${req.params.id}`)
-      })
+      score = hero.powerLevel + score
+      return Hero.update({
+          RankId: clas,
+          powerLevel: score
+        }, {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(() => {
+          HeroesThreats.update({
+            history: result,
+            HeroesId:req.params.id
+          }, {
+            where: {
+              id: idthreat
+            }
+          })
+          // res.send(req.session)
+        })
+    })
+    .then(() => {
+      res.redirect(`/hero/${req.params.id}`)
     })
 
 
