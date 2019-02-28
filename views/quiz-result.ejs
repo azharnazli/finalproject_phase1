@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
-    
+<% include ./partials/header.ejs %>
+<section class="hero-wrap js-fullheight">
+        <div class="container" style="background-image: url();" data-stellar-background-ratio="0.5"> <!--Belum ada background-->
+            <div class="row js-fullheight align-items-center justify-content-center">
+
+
     <h1>Your Result is :</h1>
     <input type="text" name="<%- quizResult(data) %>" value="<%- quizResult(data) %>">
-</body>
-</html>
+
+</div>
+</div>
+</section>
+
+<% include ./partials/footer.ejs %>
 
 
