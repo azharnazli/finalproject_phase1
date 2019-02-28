@@ -3,6 +3,8 @@ const app = express();
 const port = 3000;
 const homeRouter = require('./routes/home_routes')
 const heroRouter = require('./routes/hero_routes')
+const rankRouter = require('./routes/rank_routes')
+const threatRouter = require('./routes/threat_routes')
 const session = require('express-session')
 
 
