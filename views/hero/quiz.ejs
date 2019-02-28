@@ -4,7 +4,7 @@
 
                 <h1> Hero Quiz </h1>
                 
-                <form action="/hero/quiz-result" method="post" id="quiz">
+                <form action="/hero/<%= data.id %>" method="post" id="quiz">
                 
                     <ol>
                     
@@ -27,12 +27,11 @@
                                 <label for="question-1-answers-C">C) <%= x.Answers[2].answer %></label>
                             </div>
                          <%   }) %>
-                        
+                            
                         </li>
                     </ol>
                     
                     <input type="submit" value="Submit Quiz" />
-                    
                 </form>
             </div>
         </section>

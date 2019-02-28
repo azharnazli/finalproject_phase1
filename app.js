@@ -16,8 +16,9 @@ app.use(express.urlencoded({
     extended: false
 }))
 app.use(express.static(__dirname + '/public'))
-app.get('/session', (req, res) => {
-})
+app.use("*/css",express.static("public/css"));
+app.use('*/js',express.static("public/js"));
+app.use("*/images",express.static("public/images"))
 
 app.use('/', homeRouter)
 app.use('/hero', heroRouter)
