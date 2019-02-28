@@ -6,10 +6,11 @@ const heroRouter = require('./routes/hero_routes')
 const session = require('express-session')
 
 
+
 app.use(session({
     secret: 'foxheroes'
 }))
-
+app.locals.quizResult = require('./helper/helper')
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({
     extended: false
