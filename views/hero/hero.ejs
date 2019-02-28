@@ -2,12 +2,26 @@
 
 <section class="hero-wrap js-fullheight">
   <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div>
-<% console.log(threat) %>
+
   <div class="container">
     <br>
     <br>
     <br>
     <br>
+    <h5 style="position: relative; margin-left: 14%">Your Rank is :</h5>
+    <% if(data.RankId){ %>
+     <% console.log(data) %>
+      <% if(data.RankId == 1){ %>
+        <input type="image" src="images/S.jpg" width="60" height="60" style="margin-left:16%">
+        <% }else if(data.RankId == 2){ %>
+        <input type="image" src="images/A.jpg" width="60" height="60" style="margin-left:16%">
+        <% }else if(data.RankId == 3){ %>
+        <input type="image" src="images/B.jpg" width="60" height="60" style="margin-left:16%">
+        <% }else if(data.RankId == 4){ %>
+        <input type="image" src="images/C.jpg" width="60" height="60" style="margin-left:16%">
+        <% } %>
+   <% } %>
+    
     <form>
       <%  threat.slice(0,5).map( x =>{ %>
           <% if(x.ThreatId === 1) { %>
@@ -29,7 +43,7 @@
         <button type="submit" value="HERO'S TEST" style="position:relative"><a href="/hero/<%= locals.session.id %>/quiz">HERO'S TEST</a></button>
     </div>
   <% }else{ %>
-    <h2>Your Power Level : <%= data.powerLevel %></h2>
+    <h2 style="margin-left: 10%">Your Power Level : <%= data.powerLevel %></h2>
   <% } %>
   </div>
 </section>
