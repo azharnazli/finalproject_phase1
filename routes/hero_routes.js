@@ -1,10 +1,4 @@
-const {
-  Hero,
-  Rank,
-  Threat,
-  Question,
-  Answer
-} = require('../models')
+const {Hero,Rank,Threat,Question,Answer,HeroesThreats} = require('../models')
 const express = require('express');
 const router = express.Router();
 const helper = require('../helper/helper')
@@ -13,10 +7,17 @@ router.get('/:id', (req, res) => {
   if (req.session.login) {
     Hero.findByPk(req.session.login.id)
     .then(data=>{
-      // res.send(data)
-      res.render('hero/hero', {
-        session: req.session.login,
-        data
+      HeroesThreats.findAll({
+        where : {
+          HeroesId:null
+        }
+      })
+      .then(threat =>{
+        // res.send(threat)
+        res.render('hero/hero', {
+          session: req.session.login,
+          data,threat
+        })
       })
     })
     .catch(err=>{
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/:id', (req, res) => {
   Hero.update({
-    powerLevel : helper(req.body),
+    powerLevel : helper.quizResult(req.body),
   },{
     where : {
       id : req.params.id
