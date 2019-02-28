@@ -1,12 +1,26 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Hero = sequelize.define('Hero', {
-    name: DataTypes.STRING,
+    name: {
+      type : DataTypes.STRING,
+      isUnique : true,
+      allowNull: false
+    },
     powerLevel: DataTypes.INTEGER,
     RankId : DataTypes.INTEGER,
-    password : DataTypes.STRING,
+    password : {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     gender: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: {
+          type : DataTypes.STRING,
+          isUnique : true,
+          allowNull : false,
+          validate : {
+          isEmail : true
+        }
+    }
   }, {
     hooks : {
       beforeUpdate : function(Hero){
