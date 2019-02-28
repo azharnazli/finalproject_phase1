@@ -1,0 +1,20 @@
+<% include ./partials/header.ejs %>
+
+<table>
+    <thead>
+        <td>Hero's Name</td>
+        <td>Power Level</td>
+        <td>Rank</td>
+    </thead>
+    <tbody>
+        <tr>
+          <%  heroes.forEach(x=>{ %>
+                <td><%= x.name %></td>
+                <td><%= x.powerLevel %></td>
+                <td><%= x.Rank.class_name %></td>  
+            </tr>
+          <%  }) %>
+    </tbody>
+</table>
+
+<% include ./partials/footer.ejs %>

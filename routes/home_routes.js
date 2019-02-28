@@ -86,9 +86,11 @@ router.get('/logout', (req, res) => {
 
 //------------TOP GLOBAL-----------------------
 router.get('/top-global', (req, res) => {
-    Hero.findAll()
+    Hero.findAll({
+        include: [{model : Rank}]
+    })
         .then(heroes => {
-
+            // res.send(heroes)
             res.render('top-global', {
                 heroes
             })

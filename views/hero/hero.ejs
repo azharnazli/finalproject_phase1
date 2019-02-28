@@ -8,19 +8,20 @@
     <br>
     <br>
     <br>
-    <h5 style="position: relative; margin-left: 14%">Your Rank is :</h5>
+    <h5 style="position: relative; margin-left: 8%">Your Rank is :</h5><br>
     <% if(data.RankId){ %>
       <% if(data.RankId == 1){ %>
-        <input type="image" src="images/S.jpg" width="60" height="60" style="margin-left:16%">
+        <input type="image" src="images/S.jpg" width="60" height="60" style="margin-left:11%">
         <% }else if(data.RankId == 2){ %>
-        <input type="image" src="images/A.jpg" width="60" height="60" style="margin-left:16%">
+        <input type="image" src="images/A.jpg" width="60" height="60" style="margin-left:11%">
         <% }else if(data.RankId == 3){ %>
-        <input type="image" src="images/B.jpg" width="60" height="60" style="margin-left:16%">
+        <input type="image" src="images/B.jpg" width="60" height="60" style="margin-left:11%">
         <% }else if(data.RankId == 4){ %>
-        <input type="image" src="images/C.jpg" width="60" height="60" style="margin-left:16%">
+        <input type="image" src="images/C.jpg" width="60" height="60" style="margin-left:11%">
         <% } %>
    <% } %>
-    
+   <br>
+    <h2 style="">Your Power Level : <%= data.powerLevel %></h2><br>
     <form>
       <%  threat.slice(0,5).map( x =>{ %>
           <% if(x.ThreatId === 1) { %>
@@ -42,7 +43,6 @@
         <button type="submit" value="HERO'S TEST" style="position:relative"><a href="/hero/<%= locals.session.id %>/quiz">HERO'S TEST</a></button>
     </div>
   <% }else{ %>
-    <h2 style="margin-left: 10%">Your Power Level : <%= data.powerLevel %></h2>
   <% } %>
   </div>
 </section>

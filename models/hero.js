@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Hero.associate = function(models) {
     // associations can be defined here
-    Hero.hasOne(models.Rank)
+    Hero.belongsTo(models.Rank)
     Hero.belongsToMany(models.Threat,{through:models.HeroesThreats, foreignKey:'ThreatId'})
   };
 
