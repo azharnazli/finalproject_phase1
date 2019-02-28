@@ -5,6 +5,10 @@ const {
 } = require('../models')
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs')
+const salt = bcrypt.genSaltSync(10);
+
+
 
 router.get('/', (req, res) => {
     res.render('home', {
@@ -26,6 +30,7 @@ router.post('/register', (req, res) => {
         password: req.body.password,
         gender: req.body.gender
     }
+    addHero.password = bcrypt.hashSync(addHero.password, salt)
 
     Hero.create(addHero)
         .then(() => {
@@ -56,7 +61,7 @@ router.post('/login', (req, res) => {
             }
         })
         .then(hero => {
-            if (hero.password == req.body.password) {
+            if (bcrypt.compareSync(req.body.password,hero.password)) {
                 req.session.login = {
                     id: hero.id,
                     nama: hero.name
@@ -72,7 +77,7 @@ router.post('/login', (req, res) => {
 })
 
 //--------logout----------------
-router.get('/logout', (req, res)=>{
+router.get('/logout', (req, res) => {
     req.session.destroy()
     res.redirect('/')
 })
