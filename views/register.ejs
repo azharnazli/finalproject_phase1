@@ -1,23 +1,28 @@
 <% include ./partials/header.ejs %>
 
 <section class="hero-wrap js-fullheight">
-    <div class="container"style="background-image: url(https://mirapic.com/wp-content/uploads/2018/07/Ryu-Street-Fighter-III-3rd-Strike-Image-Background-WallPaper-Hd.jpg);" data-stellar-background-ratio="0.5" >
-        <div class="row js-fullheight align-items-center justify-content-center">
-            <form class="mb-3 bread" method="POST">
-                <label for="username">Username: </label>
-                <input type="text" name="name" required placeholder="username">
-                <label for="password">Password: </label>
-                <input type="password" name="password" required placeholder="password">
-                <label for="email">Email: </label>
-                <input type="email" name="email" required placeholder="email">
+    <div class="container" style="background-image:url(images/bg_2.jpg)" ; data-stellar-background-ratio="0.5" >
+        <div class="row js-fullheight align-items-center justify-content-center" style="color:white;">
+            <center>
 
-                Gender:
-                <select name="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <button type="submit">Join</button>
-            </form>
+                <form class="mb-3 bread" method="POST">
+                    <label for="username">Username: </label><br>
+                    <input type="text" name="name" required placeholder="username"><br>
+                    <label for="password">Password: </label><br>
+                    <input type="password" name="password" required placeholder="password"><br>
+                    <label for="email">Email: </label><br>
+                    <input type="email" name="email" required placeholder="email">
+                    <br>
+                    Gender:
+                    <select name="gender"><br><br>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select><br>
+                    <br>
+                    <button type="submit">Join</button>
+                </form>
+
+            </center>
         </div>
     </div>
 </section>
