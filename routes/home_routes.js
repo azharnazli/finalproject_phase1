@@ -83,21 +83,4 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-
-//------------TOP GLOBAL-----------------------
-router.get('/top-global', (req, res) => {
-    Hero.findAll({
-        include: [{model : Rank}],
-        order : [['powerLevel','DESC']]
-    })
-        .then(heroes => {
-            // res.send(heroes)
-            res.render('top-global', {
-                heroes
-            })
-        })
-        .catch(err => {
-            res.send(err)
-        })
-})
 module.exports = router

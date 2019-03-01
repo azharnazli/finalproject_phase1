@@ -8,6 +8,7 @@ const threatRouter = require('./routes/threat_routes')
 const session = require('express-session')
 const cron = require('node-cron')
 const helper = require('./helper/helper')
+const TopGlobalRouter = require('./routes/top-global')
 
 
 
@@ -32,6 +33,7 @@ app.use("*/images",express.static("public/images"))
 app.use('/', homeRouter)
 app.use('/hero', heroRouter)
 app.use('/threat', threatRouter)
+app.use('/top-global', TopGlobalRouter)
 
 
 cron.schedule('* * * * *',()=>{
