@@ -1,7 +1,7 @@
 const model = require('./models')
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4000;
 const homeRouter = require('./routes/home_routes')
 const heroRouter = require('./routes/hero_routes')
 const threatRouter = require('./routes/threat_routes')

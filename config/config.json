@@ -5,5 +5,19 @@
     "database": "hwxmbiya",
     "host": "stampy.db.elephantsql.com",
     "dialect": "postgres"
+  },
+  "test": {
+    "username": "hwxmbiya",
+    "password": "pww2crQ0J2wm1h22KJ9Rq2wgBcBgH34D",
+    "database": "hwxmbiya",
+    "host": "stampy.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "aagdwpwvvozxdl",
+    "password": "ce69cb8e3f6840d2b17b9ea8b11355949c13e0307b0178e0426a5bb6e03706fc",
+    "database": "d8n5t0lkahds5",
+    "host": "ec2-107-21-224-76.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
